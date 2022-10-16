@@ -1,0 +1,282 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&family=Josefin+Sans:ital,wght@0,300;1,300&family=Ms+Madi&family=Poppins&family=Rubik:ital,wght@0,300;1,300&family=Source+Code+Pro:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+    
+}
+
+.sidebar {
+    background-color: rgb(206, 30, 30);
+    background-color: black;
+    width: 15vw;
+    /* font-family: 'Fira Sans', sans-serif; */
+    font-family: 'Source Code Pro', monospace;
+    font-weight:900;
+    height: 100vh;
+}
+
+.sidebar nav {
+    padding: 40px;
+}
+
+.sidebar nav li {
+    list-style: none;
+    font-size: 25px;
+    padding: 30px 0;
+}
+.sidebar nav li a{
+    text-decoration: none;
+    color: wheat;
+    padding: 10px;
+    background: rgb(27, 27, 27);
+    border-radius: 10px;
+}
+.sidebar nav li a:hover{
+    color: rgb(2, 2, 2);
+    
+    background: rgb(128, 162, 255);
+    
+}
+
+.main {
+    background-color: rgb(80,80,80,1);
+    width: 85vw;
+}
+
+.container {
+    display: flex;
+    /* border: 2px solid red; */
+    
+}
+
+.info {
+    /* background-color: green; */
+    height: 50vh;
+    width: 80vw;
+    margin: 140px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.devinfo{
+    font-family: 'Source Code Pro', monospace;
+}
+
+.hello {
+    
+    font-size: 40px;
+}
+
+.name {
+    font-size: 55px;
+    font-family: 'Fira', sans-serif;
+}
+
+.about {
+    font-size: 25px;
+    color: gray;
+}
+.moreabout{
+    font-family: 'Fira', sans-serif;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+button {
+    border: 1px solid #000;
+    background-color: rgb(107, 109, 247);
+    /* background-color: #15d798; */
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 30px;
+    padding:7px 10px;
+    border-radius: 11px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #fff;
+    color: #000;
+    font-size: 17px;
+    margin-top: 30px;
+}
+
+.devpic img {
+    /* width: auto; */
+    height: 50vh;
+    /* max-width: 400px; */
+    border: 3px solid;
+    /* background: #4458dc; */
+    margin: 30px;
+    border-radius: 30px;
+       
+}
+
+.devpic {
+    border-radius: 30% 70% 30% 70% / 30% 30% 70% 70%;
+    background-color: #ffee00;
+    /*     incomplete*/
+}
+
+
+/*---------------------     
+      contact form
+----------------------- */
+.contactform{
+    
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+    padding: 120px 50px;     /*top-botom  right-left*/
+}
+.contactform h1{
+    text-align: center;
+}
+.contactform form .email-section, .phone-section{
+    padding:5px 0;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    /* color: red;  */
+    
+}
+.tickbox-section{
+    margin: 20px 0;
+}
+
+.email-box, .phone-box{
+    width:500px;
+    border-radius: 5px;
+    height: 25px;
+    margin-top: 3px;   
+    border: 1px solid black; 
+}
+.tick-box{
+      margin: 10px 3px;    
+}
+.tick-label{
+    font-family: 'Fira', sans-serif;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size:20px;
+}
+#emailHelp{
+    color: rgb(151, 41, 255);
+    font-size: 12px;
+    margin: 0 10px;
+    padding-top: 2px;
+    width:50vw;
+    
+}
+.contactform-submit-button{
+    margin-top:0 ;
+    transition: all 0.5s linear ;
+}
+.contactform-submit-button:hover{
+    margin-top:0 ;
+}
+
+
+
+
+/*---------------------     
+    intro page
+----------------------- */
+
+.card-4{
+    font-family: 'Fira Sans', sans-serif;
+    background: rgb(56, 56, 56);
+    width: 85vw;
+    height: 100vh;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-3{
+    background: #ffffff;
+    width: 250px;
+    height: 350px;
+    border-radius: 25px;
+    border:0.1px solid black;
+    display: flex;
+    flex-direction: column;
+   
+}
+.card-in-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:20px;
+    padding: 0 10px 0 10px;
+}
+.card-in-3 button{
+    margin-top: 20px;
+    border-radius: 6px;
+    font-family:cursive;
+    font-size: 15px;
+}
+.card-in-3 h3{
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding-top:10px ;
+    font-size: 15px;
+    /* height: 40%; */
+    /* width: 100%; */
+    /* border: 1px solid black; */
+}
+.card-in-3 p{
+    font-size: 13px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.card-2{
+    /* box-sizing: border-box; */
+    background: rgb(133, 100, 252);
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid red; */
+    /* width:80vw; */
+    border-radius: 25px;    
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+}
+
+
+.card-1{
+    
+    position: relative;
+    height: 100px;   
+    width:100px;
+    border: 2px solid rgb(252, 252, 253);
+    /* padding: 2px; */
+    border-radius: 50%;
+    /* padding: 3px; */
+    background-color: rgba(11, 9, 133, 0.966);
+}
+.card-1 .profile-image{
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgb(138, 89, 253);
+    /* margin: 0; */
+}
+
+
+
+
+
+
+
+
+
