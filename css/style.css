@@ -1,61 +1,198 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;1,300&family=Poppins&family=Rubik:ital,wght@0,300;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&family=Josefin+Sans:ital,wght@0,300;1,300&family=Ms+Madi&family=Poppins&family=Rubik:ital,wght@0,300;1,300&family=Source+Code+Pro:wght@300&display=swap');
 * {
     margin: 0;
     padding: 0;
-    /* border: 1px solid red; */
-    
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+    /* font-family: 'Ms Madi', cursive; */
+    /* border: 1px solid greenyellow; */
+    /* outline: red 1px solid; */
+}
+body{
+    background: var(--color);
+    /* min-height: 100vh; */
+    /* background: #001660; */
+}
+.container {
+    display: flex; 
+    min-height: 100vh;
+    /* background-color: red; */
+
 }
 
-.sidebar {
-    background-color: rgb(206, 30, 30);
-    background-color: black;
-    width: 15vw;
-    /* font-family: 'Fira Sans', sans-serif; */
-    font-family: 'Source Code Pro', monospace;
-    font-weight:900;
-    height: 100vh;
-}
 
-.sidebar nav {
-    padding: 40px;
-}
-
-.sidebar nav li {
-    list-style: none;
-    font-size: 25px;
-    padding: 30px 0;
-}
-.sidebar nav li a{
-    text-decoration: none;
-    color: wheat;
-    padding: 10px;
-    background: rgb(27, 27, 27);
+/*-------------------
+   Stylish Sidebaar
+---------------------*/
+.navigation{
+    /* background: #4d5bf9; */
+    background: var(--sidecolor);
+    background: bc;
+    position: fixed;
+    left: 20px;
+    top:20px;
+    bottom:25px;
+    width: 250px;                       /*width reduced after toggle button making */
+    /* width: 15vw; */
+    overflow-x: hidden;     /*because text coming out when not active*/
     border-radius: 10px;
-}
-.sidebar nav li a:hover{
-    color: rgb(2, 2, 2);
+    /* border-left: 5px solid #4d5bf9;  for pushing the content to right */
+    border-left: 5px solid var(--sidecolor); /* for pushing the content to right*/
+    box-sizing: initial;
+    transition:width 0.5s;      /*transition only on width*/
     
-    background: rgb(128, 162, 255);
-    
 }
+.navigation.active{
+    width: 50px;                /*now width is 300px*/
+}
+.navigation ul{
+    /* background: red; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 40px;
+    padding-left: 5px;
+}
+.navigation ul li{
+    /* background: blue; */
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;       /*set after adding active class*/ 
+    border-bottom-left-radius: 20px;    /*set after adding active class*/
+}
+.navigation ul li.active{
+    /* background: #fff; */
+    background: var(--color);
+}
+
+.navigation ul li a{
+    /* background: black; */
+    position: relative;
+    display: flex;          /*expand to full block*/
+    width: 100%;              /*now set percent*/
+    text-decoration: none;
+    /* color: #fff; */
+    color: var(--color);
+    font-weight: 500;
+}
+.navigation ul li.active a{
+    color: #000;
+}
+
+.navigation ul li a .icon{
+    /* background: yellow; */
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 20px;
+    line-height:90px;
+    text-align: center;
+    margin:20px 10px 0 -10px ;      /*my own for positioning of icon*/
+}
+.navigation ul li a .title{
+  position: relative;  
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  white-space: normal;     /*dont know*/
+}
+
+.toggle{
+    height: 50px;
+    width: 50px;
+    background:var(--sidecolor);
+    position:sticky;
+    left: 1%;
+    top: 93%;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;             /*for centring cross icon*/
+    justify-content: center;
+    align-items: center;
+}
+.toggle.active{
+    background: var(--sidecolor);
+}
+.toggle svg{
+    max-width: 35px;
+    position: absolute;   /*dont know*/
+    /* color: #fff; */
+    color: var(--color);
+    font-size: 20px;
+    font-family: monospace;    /*faltoo*/
+    /* display: none; */
+}
+.toggle svg.open ,
+.toggle.active svg.close{
+    display: none;
+}
+.toggle svg.close,
+.toggle.active svg.open{
+    display: block;
+}
+
+
+.navigation ul li b:nth-child(1){
+    /* background: #fff; */
+    background: var(--color);
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 100%;
+    display: none;
+}
+.navigation ul li b:nth-child(1)::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* background: #4d5bf9; */
+    background: var(--sidecolor);
+    border-bottom-right-radius: 20px;
+}
+.navigation ul li b:nth-child(2){
+    /* background: #fff; */
+    background: var(--color);
+    position: absolute;
+    top: 60px;
+    height: 20px;
+    width: 100%;
+    display: none;
+}
+.navigation ul li b:nth-child(2)::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* background: #4d5bf9; */
+    background: var(--sidecolor);
+    border-top-right-radius: 20px;
+}
+.navigation ul li.active b:nth-child(2),
+.navigation ul li.active b:nth-child(1){
+    display: block;
+}
+
 
 .main {
-    background-color: rgb(80,80,80,1);
-    width: 85vw;
+    /* background-color: #3AAFA9; */
+    position:fixed;
+    right: 0px;
+    height:100% ;
+    width: 80vw;
+    /* z-index: -1; */
 }
 
-.container {
-    display: flex;
-    /* border: 2px solid red; */
-    
-}
 
 .info {
     /* background-color: green; */
-    height: 50vh;
-    width: 80vw;
-    margin: 140px auto;
+    height: 100%;
+    width: 100%;
+    /* margin: 140px auto; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -84,9 +221,9 @@
     font-size: 15px;
 }
 
-button {
+button{
     border: 1px solid #000;
-    background-color: rgb(107, 109, 247);
+    background-color:var(--sidecolor);
     /* background-color: #15d798; */
     color: #fff;
     font-size: 17px;
@@ -97,17 +234,15 @@ button {
     transition: all 0.3s linear;
     cursor: pointer;
 }
-button:hover {
-    background-color: #fff;
-    color: #000;
-    font-size: 17px;
-    margin-top: 30px;
+button:hover{
+    background-color:var(--sidecolor);
+    color: var(--color);
 }
 
 .devpic img {
     /* width: auto; */
     height: 50vh;
-    /* max-width: 400px; */
+    max-width: 400px;
     border: 3px solid;
     /* background: #4458dc; */
     margin: 30px;
@@ -118,66 +253,87 @@ button:hover {
 .devpic {
     border-radius: 30% 70% 30% 70% / 30% 30% 70% 70%;
     background-color: #ffee00;
+    background-color: var(--sidecolor);
     /*     incomplete*/
 }
 
-
-/*---------------------     
-      contact form
------------------------ */
-.contactform{
-    
-    font-family: 'Source Code Pro', monospace;
-    font-weight: bold;
-    padding: 120px 50px;     /*top-botom  right-left*/
+@media (max-width:1300px){
+    .navigation{
+        width: 50px;                /*now width is 300px*/
+    }   
+    .navigation.active{
+        width: 250px;                /*now width is 300px*/
+    }   
 }
-.contactform h1{
-    text-align: center;
+@media (max-width:1000px){
+    .devpic{
+        border: 0px;
+        background: var(--color);
+    }
+    .devpic img{
+        /* display: none; */
+        border-radius: 200px;
+        width: 200px;
+        height: 200px;
+    }
+    form{
+        border-radius: 25px;
+    } 
+    .info{
+        flex-direction: column;
+        justify-content:flex-start;
+        margin-top: 150px;
+    }  
+    .devinfo{
+        text-align: center;
+    }
+    .devinfo a{
+        display: block;
+    }
+    .hello{
+        font-size: 30px;
+    }
+    .name{
+        font-size: 40px;
+    }
+    .about{
+        font-size: 15px;
+    }
+    .moreabout{
+        font-size: 15px;
+    }
+    .navigation{
+        width: 50px;
+    }
+    .navigation.active{
+        width: 250px;
+    }
+    .toggle svg.open ,
+    .toggle.active svg.close{
+        display: block;
+    }
+    .toggle svg.close,
+    .toggle.active svg.open{
+        display: none;
+    }
 }
-.contactform form .email-section, .phone-section{
-    padding:5px 0;
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    /* color: red;  */
-    
+@media (max-width:300px){
+    .devpic img{
+        border-radius: 20px;
+        width: 100px;
+        height: 100px;
+    }
+    .name{
+        font-size: 20px;
+    }
+    .about, .moreabout{
+        display: none;
+    }
+    .devinfo a button{
+        border-radius: 7px;
+        font-size: 10px;
+    }
 }
-.tickbox-section{
-    margin: 20px 0;
-}
-
-.email-box, .phone-box{
-    width:500px;
-    border-radius: 5px;
-    height: 25px;
-    margin-top: 3px;   
-    border: 1px solid black; 
-}
-.tick-box{
-      margin: 10px 3px;    
-}
-.tick-label{
-    font-family: 'Fira', sans-serif;
-    font-family: 'Cedarville Cursive', cursive;
-    font-size:20px;
-}
-#emailHelp{
-    color: rgb(151, 41, 255);
-    font-size: 12px;
-    margin: 0 10px;
-    padding-top: 2px;
-    width:50vw;
-    
-}
-.contactform-submit-button{
-    margin-top:0 ;
-    transition: all 0.5s linear ;
-}
-.contactform-submit-button:hover{
-    margin-top:0 ;
-}
-
-
 
 
 /*---------------------     
@@ -186,7 +342,7 @@ button:hover {
 
 .card-4{
     font-family: 'Fira Sans', sans-serif;
-    background: rgb(56, 56, 56);
+    background:var(--color);
     width: 85vw;
     height: 100vh;
     display: flex ;
@@ -203,7 +359,7 @@ button:hover {
     border:0.1px solid black;
     display: flex;
     flex-direction: column;
-   
+    margin-right: 40%;
 }
 .card-in-3{
     display: flex;
@@ -215,7 +371,7 @@ button:hover {
     padding: 0 10px 0 10px;
 }
 .card-in-3 button{
-    margin-top: 20px;
+    margin-top: -13px;
     border-radius: 6px;
     font-family:cursive;
     font-size: 15px;
@@ -271,12 +427,179 @@ button:hover {
     border: 2px solid rgb(138, 89, 253);
     /* margin: 0; */
 }
+@media(max-width:400px){
+    .card-3{
+        margin-right: 0;
+        width: 200px;
+        height: 400px;
+    }
+}
 
 
 
 
+/*---------------------     
+project page
+----------------------- */
+
+.project-content{
+    background:var(--color);
+    /* background:black; */
+    height: unset;
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    justify-content: space-around ;
+    position: absolute;
+    right: 20px;
+    width: 75vw;
+    margin-top: 50px;
+}
+.project-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: lightblue;
+    height: 290px;
+    width: 330px;
+    margin: 5px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+.project-img{
+    border-radius: 15px;
+    height: 170px;
+    width: 300px;
+    /* margin: 10px 0 0 10px; */
+}
+.product-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.open-button{
+    box-shadow: 20px;
+    height: 40px;
+    margin: 0;
+}
+@media (max-width:400px){
+    .project-bar{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 200px;
+        height: 250px;
+    }
+    .project-img{
+        width: 170px;
+        height: 110px;
+    }
+    .product-info{
+        font-size: 10px;
+    }
+    .navigation{
+        z-index: 1;
+    }
+}
 
 
 
 
+/*---------------------     
+      contact form
+----------------------- */
 
+.contactform{
+    /* box-sizing: border-box; */
+    height: 100vh;
+    width: 100%;
+    background: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    border: 2px solid #000;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 35%;
+    max-width: 600px;
+    border-radius: 20px;
+    /* margin-right: 150px; */
+}
+form h3{                         /*not imp*/
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin-bottom: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+form input, form textarea{        /*not imp*/
+    border: 0;
+    margin: 10px 0;
+    background: #f5f5f5;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 0.5px solid #000;
+}
+form button{                      /*not imp*/
+    padding: 15px;
+    background: #ca2a2a;
+    color: var(--sidecolor);
+    border: none;
+    font-size: 18px;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+}
+.image{
+    /* outline: 2px solid red; */
+    border-radius: 20px;
+    padding: 15px;
+    margin: 0 50px 0 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.img-back{
+    border: 4px solid var(--sidecolor);
+    border-radius: 2000px;
+    margin-bottom: 20px;
+    padding: 2px;
+}
+.image img{
+    background-color: #ca2a2a;
+    background-color: var(--sidecolor);
+    border-radius: 2000px;
+}
+.intro{
+    /* margin: 20px 100px 10px 100px; */
+    color: var(--sidecolor);
+    font-family: cursive;
+    font-weight: 400;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+@media (max-width:400px){
+    .contactform{
+        flex-direction: column;
+        /* background: red     ; */
+        
+    }
+    .image img{
+        width: 200px;
+    }
+    form{
+        width:90%;
+        height: 50%;
+        margin-right: 0px;
+    }
+    .intro{font-size: 10px;}
+}
