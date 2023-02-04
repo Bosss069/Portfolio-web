@@ -587,7 +587,7 @@ form button{                      /*not imp*/
     /* display: flex; */
     /* justify-content: center; */
 }
-@media (max-width:400px){
+@media (max-width:1000px){
     .contactform{
         flex-direction: column;
         /* background: red     ; */
@@ -602,4 +602,10 @@ form button{                      /*not imp*/
         margin-right: 0px;
     }
     .intro{font-size: 10px;}
+}
+@media (max-width:280px){
+    .image{display: none;}
+    form{width: 180px;height: 500px;padding: 0;}
+    
+    
 }
