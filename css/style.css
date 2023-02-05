@@ -504,7 +504,7 @@ project page
         z-index: 1;
     }
 }
-
+@media(max-width:710px){.navigation{z-index: 1;}}
 
 
 
